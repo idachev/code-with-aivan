@@ -149,55 +149,6 @@
             margin-top: 0.5rem;
         }
 
-        .notify-form {
-            display: flex;
-            gap: 1rem;
-            max-width: 500px;
-            margin: 0 auto 2rem;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .email-input {
-            flex: 1;
-            min-width: 250px;
-            padding: 1rem 1.5rem;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            color: white;
-            font-size: 1rem;
-            outline: none;
-            transition: all 0.3s ease;
-        }
-
-        .email-input::placeholder {
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        .email-input:focus {
-            border-color: rgba(255, 255, 255, 0.6);
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-        .notify-btn {
-            padding: 1rem 2.5rem;
-            border: none;
-            border-radius: 50px;
-            background: white;
-            color: #667eea;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .notify-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-        }
 
 
         @media (max-width: 768px) {
@@ -236,32 +187,19 @@
             }
         }
 
-        .success-message {
-            display: none;
-            background: rgba(46, 213, 115, 0.2);
-            border: 1px solid rgba(46, 213, 115, 0.5);
-            border-radius: 10px;
-            padding: 1rem;
-            margin-top: 1rem;
-            animation: slideDown 0.5s ease;
-        }
 
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .social-links-container {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
         }
 
         .youtube-link {
             display: inline-flex;
             align-items: center;
             gap: 0.75rem;
-            margin-top: 2rem;
             padding: 1rem 2rem;
             background: rgba(255, 0, 0, 0.15);
             backdrop-filter: blur(10px);
@@ -283,6 +221,34 @@
         }
 
         .youtube-icon {
+            font-size: 1.5rem;
+        }
+
+        .discord-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            background: rgba(88, 101, 242, 0.15);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(88, 101, 242, 0.3);
+            border-radius: 50px;
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .discord-link:hover {
+            background: rgba(88, 101, 242, 0.25);
+            border-color: rgba(88, 101, 242, 0.5);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(88, 101, 242, 0.3);
+        }
+
+        .discord-icon {
             font-size: 1.5rem;
         }
     </style>
@@ -315,25 +281,16 @@
             </div>
         </div>
 
-        <form class="notify-form" id="notifyForm">
-            <input
-                type="email"
-                class="email-input"
-                placeholder="Enter your email"
-                required
-                id="emailInput"
-            >
-            <button type="submit" class="notify-btn">Notify Me</button>
-        </form>
-
-        <div class="success-message" id="successMessage">
-            Thanks! We'll notify you when we launch.
+        <div class="social-links-container">
+            <a href="https://www.youtube.com/@CodeWithAIvan" target="_blank" rel="noopener noreferrer" class="youtube-link">
+                <span class="youtube-icon">&#9654;</span>
+                <span>YouTube Channel</span>
+            </a>
+            <a href="https://discord.gg/pxZ3FsRUgq" target="_blank" rel="noopener noreferrer" class="discord-link">
+                <span class="discord-icon">&#x1F4AC;</span>
+                <span>Join Discord</span>
+            </a>
         </div>
-
-        <a href="https://www.youtube.com/@CodeWithAIvan" target="_blank" rel="noopener noreferrer" class="youtube-link">
-            <span class="youtube-icon">▶️</span>
-            <span>Visit YouTube Channel</span>
-        </a>
     </div>
 
     <script>
@@ -381,24 +338,6 @@
             update();
             const countdownInterval = setInterval(update, 1000);
         }
-
-        // Handle form submission
-        document.getElementById('notifyForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const email = document.getElementById('emailInput').value;
-
-            // Here you would typically send the email to your backend
-            console.log('Email submitted:', email);
-
-            // Show success message
-            document.getElementById('successMessage').style.display = 'block';
-            document.getElementById('emailInput').value = '';
-
-            // Hide success message after 5 seconds
-            setTimeout(() => {
-                document.getElementById('successMessage').style.display = 'none';
-            }, 5000);
-        });
 
         // Initialize
         createParticles();
