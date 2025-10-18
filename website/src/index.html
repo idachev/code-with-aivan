@@ -218,6 +218,34 @@
         .discord-icon {
             font-size: 1.5rem;
         }
+
+        .instagram-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            background: rgba(225, 48, 108, 0.15);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(225, 48, 108, 0.3);
+            border-radius: 50px;
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .instagram-link:hover {
+            background: rgba(225, 48, 108, 0.25);
+            border-color: rgba(225, 48, 108, 0.5);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(225, 48, 108, 0.3);
+        }
+
+        .instagram-icon {
+            font-size: 1.5rem;
+        }
     </style>
 </head>
 <body>
@@ -253,6 +281,10 @@
             <a href="https://discord.gg/pxZ3FsRUgq" target="_blank" rel="noopener noreferrer" class="discord-link">
                 <span class="discord-icon">&#x1F4AC;</span>
                 <span>Join Discord</span>
+            </a>
+            <a href="https://www.instagram.com/codewithaivan/" target="_blank" rel="noopener noreferrer" class="instagram-link">
+                <span class="instagram-icon">&#x1F4F7;</span>
+                <span>Instagram</span>
             </a>
         </div>
     </div>
