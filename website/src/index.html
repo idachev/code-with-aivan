@@ -309,11 +309,22 @@
             }
         }
 
-        // Countdown timer
+        // Countdown timer with localStorage
         function updateCountdown() {
-            // Set launch date (30 days from now)
-            const launchDate = new Date();
-            launchDate.setDate(launchDate.getDate() + 30);
+            const STORAGE_KEY = 'countdownLaunchDate';
+            let launchDate;
+
+            // Check if we have a stored launch date
+            const storedDate = localStorage.getItem(STORAGE_KEY);
+
+            if (storedDate) {
+                launchDate = new Date(parseInt(storedDate));
+            } else {
+                // First time visitor - set launch date to 30 days from now
+                launchDate = new Date();
+                launchDate.setDate(launchDate.getDate() + 30);
+                localStorage.setItem(STORAGE_KEY, launchDate.getTime().toString());
+            }
 
             function update() {
                 const now = new Date().getTime();
@@ -324,14 +335,24 @@
                 const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
+                // Check if we hit 1 day or less - reset to 30 days
+                if (days <= 1 && days >= 0) {
+                    launchDate = new Date();
+                    launchDate.setDate(launchDate.getDate() + 30);
+                    localStorage.setItem(STORAGE_KEY, launchDate.getTime().toString());
+                    return; // Will update on next interval
+                }
+
                 document.getElementById('days').textContent = String(days).padStart(2, '0');
                 document.getElementById('hours').textContent = String(hours).padStart(2, '0');
                 document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
                 document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
 
                 if (distance < 0) {
-                    clearInterval(countdownInterval);
-                    document.querySelector('.countdown').innerHTML = '<p>We are live!</p>';
+                    // Reset to 30 days
+                    launchDate = new Date();
+                    launchDate.setDate(launchDate.getDate() + 30);
+                    localStorage.setItem(STORAGE_KEY, launchDate.getTime().toString());
                 }
             }
 
