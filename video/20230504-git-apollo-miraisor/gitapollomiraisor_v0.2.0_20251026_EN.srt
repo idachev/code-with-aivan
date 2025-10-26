@@ -1,0 +1,400 @@
+1
+00:00:00,000 --> 00:00:05,527
+Hello to my YouTube channel
+CodeWithAivan, today I will tell you
+
+2
+00:00:05,527 --> 00:00:12,283
+about a tool that, we quickly developed
+with the help of ChatGPT. We called it
+
+3
+00:00:12,283 --> 00:00:19,302
+GitApolloMiraiser. The idea is to monitor
+GitHub repos, so you can see the entire
+
+4
+00:00:19,302 --> 00:00:24,039
+state, if they have branches for specific
+environments.
+
+5
+00:00:24,039 --> 00:00:28,426
+With this tool you can see what commit
+messages there are, what commits are
+
+6
+00:00:28,426 --> 00:00:32,872
+waiting to be merged from one environment
+to another? What pull requests are
+
+7
+00:00:32,872 --> 00:00:37,318
+waiting to be merged into the first
+branch - in our case, that's the master.
+
+8
+00:00:37,318 --> 00:00:40,638
+Specifically here, I'm showing you in one
+of our product.
+
+9
+00:00:40,638 --> 00:00:46,025
+The product is for our shippers, which
+consists of many services. Here, all the
+
+10
+00:00:46,025 --> 00:00:51,273
+services are listed. If you zoom out, you
+can see the entire state of all the
+
+11
+00:00:51,273 --> 00:00:56,521
+services. Once you get used to it, you
+can quickly see that we have different
+
+12
+00:00:56,521 --> 00:01:01,562
+frontends, which we know are not being
+worked on, and they all show green.
+
+13
+00:01:01,562 --> 00:01:08,008
+Let's start with the details of what they
+represent. The first top box shows when
+
+14
+00:01:08,008 --> 00:01:14,454
+the report was generated. By report, we
+mean the entire board, when is this state
+
+15
+00:01:14,454 --> 00:01:17,758
+you see, to which date and time it
+refers.
+
+16
+00:01:17,760 --> 00:01:24,180
+The second half is the version of the
+tool, when it is, when it is built, and,
+
+17
+00:01:24,180 --> 00:01:30,017
+uh, the commit hash of the version
+itself. So, for each repo, the first
+
+18
+00:01:30,017 --> 00:01:36,604
+column, the first box, has the name of
+the repo and a link to GitHub, so you can
+
+19
+00:01:36,604 --> 00:01:40,440
+open the GitHub link and go to the repo
+itself.
+
+20
+00:01:40,440 --> 00:01:46,335
+So, here, as we can see, this is our
+posting backend microservice. It has
+
+21
+00:01:46,335 --> 00:01:52,804
+three open pull requests, for each, uh,
+for the pull request box in Miros, there
+
+22
+00:01:52,804 --> 00:01:54,360
+are three sections.
+
+23
+00:01:54,360 --> 00:01:59,028
+In the name and in the title of the pull
+request, it is our practice and
+
+24
+00:01:59,028 --> 00:02:04,421
+convention to have the ticket number, and
+for this a link is automatically created.
+
+25
+00:02:04,421 --> 00:02:09,616
+The first is a link to the Jira ticket
+itself, so you can open it to see what is
+
+26
+00:02:09,616 --> 00:02:14,482
+being worked on as a pull request.
+Accordingly, here it should, usually the
+
+27
+00:02:14,482 --> 00:02:17,112
+practice is for it to be on code review.
+
+28
+00:02:17,115 --> 00:02:23,485
+And separately, you have the second link.
+This is a link to the pull request in
+
+29
+00:02:23,485 --> 00:02:30,019
+GitHub. So here you can open it and check
+what the commits are, um, what has been
+
+30
+00:02:30,019 --> 00:02:30,672
+changed.
+
+31
+00:02:30,690 --> 00:02:36,040
+The next columns. These are, they are
+defined with configuration in our
+
+32
+00:02:36,040 --> 00:02:42,232
+company. We have Master, QA, Staging, and
+Production as branches, and accordingly,
+
+33
+00:02:42,232 --> 00:02:47,660
+for each branch, it is automatically
+connected with continuous delivery.
+
+34
+00:02:47,660 --> 00:02:51,824
+For automatic deployment, if things are
+merged into the respective branch. In
+
+35
+00:02:51,824 --> 00:02:56,098
+this case, we see that there is nothing
+waiting to be merged from master to QA,
+
+36
+00:02:56,098 --> 00:03:00,372
+from QA to staging, or from staging to
+production. We can look, for example, in
+
+37
+00:03:00,372 --> 00:03:04,646
+this service event, in the backend there
+is something currently being worked on
+
+38
+00:03:04,646 --> 00:03:06,400
+and waiting for review or merge.
+
+39
+00:03:06,400 --> 00:03:11,137
+Ah, and we see that in the end here there
+are commits that have passed through the
+
+40
+00:03:11,137 --> 00:03:15,231
+Quality Assurance and Staging
+environments and are naturally waiting to
+
+41
+00:03:15,231 --> 00:03:19,969
+be released to production. This way, you
+can easily and quickly orient yourself on
+
+42
+00:03:19,969 --> 00:03:22,308
+what is ready for release to production.
+
+43
+00:03:22,320 --> 00:03:28,285
+We can click on the respective Jira
+tickets, and in these three columns, the
+
+44
+00:03:28,285 --> 00:03:34,569
+information is a bit different. Here, all
+commit messages are listed, of commits
+
+45
+00:03:34,569 --> 00:03:38,228
+that will be merged from staging to
+production.
+
+46
+00:03:38,230 --> 00:03:42,479
+If inside the ticket, in the commit
+message, there is the ticket number, a
+
+47
+00:03:42,479 --> 00:03:46,961
+link is automatically created. And in
+this case here, since this is not a pull
+
+48
+00:03:46,961 --> 00:03:51,268
+request, these are commits, the commit
+message itself is not shown, but the
+
+49
+00:03:51,268 --> 00:03:55,809
+summary of the Jira ticket is extracted.
+That is, if we open the summary of the
+
+50
+00:03:55,809 --> 00:03:59,360
+Jira ticket, which is inventory: create
+unit for AutoIMS sync.
+
+51
+00:03:59,360 --> 00:04:04,244
+Here, you can even see here that it can
+be synced, in this case, it is ready for
+
+52
+00:04:04,244 --> 00:04:09,005
+release, as well as showing technically
+inside the Git what the status is. And
+
+53
+00:04:09,005 --> 00:04:13,828
+here is the title of the Jira ticket. So,
+we saw that this tool is very useful.
+
+54
+00:04:13,828 --> 00:04:18,527
+We've been using it for a week, and we
+made the tool available across all our
+
+55
+00:04:18,527 --> 00:04:19,950
+teams for their builds.
+
+56
+00:04:19,950 --> 00:04:25,506
+The build currently runs as cron jobs in
+one of our system Kubernetes clusters and
+
+57
+00:04:25,506 --> 00:04:30,789
+runs every ten minutes. The job starts,
+rebuilds the tool, rebuilds the board,
+
+58
+00:04:30,789 --> 00:04:35,728
+and automatically snapshots all the
+information from all specified GitHub
+
+59
+00:04:35,728 --> 00:04:36,140
+repos.
+
+60
+00:04:36,140 --> 00:04:42,643
+If there are, uh, tickets, it
+automatically takes the information from
+
+61
+00:04:42,643 --> 00:04:49,995
+Jira itself, uh, the information for the
+Jira ticket, as it is here, or it also
+
+62
+00:04:49,995 --> 00:04:53,295
+creates links to the pull requests.
+
+63
+00:04:53,295 --> 00:04:58,855
+Let see board of other team, and check
+how the states of their repos are
+
+64
+00:04:58,855 --> 00:05:02,850
+visible. Here there is a lot more work to
+be merged.
+
+65
+00:05:02,850 --> 00:05:08,065
+Here, for example, as we can see, some of
+the repos have not followed the
+
+66
+00:05:08,065 --> 00:05:13,497
+conventions, have not added a Jira
+ticket, and accordingly, we only have the
+
+67
+00:05:13,497 --> 00:05:19,220
+commit messages for what will be merged
+from master to QA or from QA to staging.
+
+68
+00:05:19,220 --> 00:05:26,239
+But more or less the practice in most
+teams is to include ticket numbers both
+
+69
+00:05:26,239 --> 00:05:32,705
+in the pull request and in the commit
+messages. And this helps the tool
+
+70
+00:05:32,705 --> 00:05:39,725
+automatically create a link to Jira for
+you, so you can open it and check it.
+
+71
+00:05:39,725 --> 00:05:47,266
+What is coming next is to see people's
+feedback. My idea for improvements is to
+
+72
+00:05:47,266 --> 00:05:54,904
+add Git Commit sha for every branch, so
+you can easily see up to which commit it
+
+73
+00:05:54,904 --> 00:06:02,059
+is merged to QA, Staging, at the top of
+Staging, QA, Production, or Master.
+
+74
+00:06:02,060 --> 00:06:08,741
+Also, to add a link for those repos that
+have a Swagger UI. Because if we open a
+
+75
+00:06:08,741 --> 00:06:15,000
+Swagger here, if there was a link to one
+of the Swagger, like inventory and
+
+76
+00:06:15,000 --> 00:06:21,512
+Swagger on QA, it could automatically
+load and show that this is a Git SHA and
+
+77
+00:06:21,512 --> 00:06:24,473
+it should match what is at the top.
+
+78
+00:06:24,480 --> 00:06:29,770
+In this case, the QA branch. If by chance
+it does not match, it should remain in
+
+79
+00:06:29,770 --> 00:06:34,994
+the continuous delivery system. We use
+Argo. And to check why things are merged
+
+80
+00:06:34,994 --> 00:06:39,615
+in the branch, in this case QA, but they
+are not deployed if there are
+
+81
+00:06:39,615 --> 00:06:44,905
+discrepancies. That's it. Thank you very
+much, and I hope this is very useful to
+
+82
+00:06:44,905 --> 00:06:45,508
+everyone.
+
